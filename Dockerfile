@@ -23,4 +23,9 @@ apt-get -y autoremove ; \
 apt-get clean ; \
 rm -Rf /var/lib/apt/lists/*
 
+RUN apt-get -y install agocontrol  \
+agocontrol-zwave agocontrol-owfs agocontrol-knx agocontrol-mysensors ; \
+apt-get clean ; \
+rm -Rf /var/lib/apt/lists/*
+
 CMD ["/bin/bash"]
