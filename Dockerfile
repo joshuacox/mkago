@@ -10,22 +10,17 @@ RUN wget -O - http://mirror.at.agocontrol.com/debian/conf/agocontrol.gpg.key | a
 
 RUN apt-get -qq update; \
 apt-get -qqy dist-upgrade ; \
-apt-get -qqy --no-install-recommends install locales agocontrol \
-agocontrol-zwave agocontrol-owfs agocontrol-knx agocontrol-mysensors \
+apt-get -qqy --no-install-recommends install locales \
 sudo procps ca-certificates wget pwgen supervisor; \
 echo 'en_US.ISO-8859-15 ISO-8859-15'>>/etc/locale.gen ; \
 echo 'en_US ISO-8859-1'>>/etc/locale.gen ; \
 echo 'en_US.UTF-8 UTF-8'>>/etc/locale.gen ; \
 locale-gen ; \
 apt-get -y install agocontrol  \
-agocontrol-zwave agocontrol-owfs agocontrol-knx agocontrol-mysensors ; \
+agocontrol-mysensors ; \
 apt-get -y autoremove ; \
 apt-get clean ; \
 rm -Rf /var/lib/apt/lists/*
 
-RUN apt-get -y install agocontrol  \
-agocontrol-zwave agocontrol-owfs agocontrol-knx agocontrol-mysensors ; \
-apt-get clean ; \
-rm -Rf /var/lib/apt/lists/*
 
 CMD ["/bin/bash"]
