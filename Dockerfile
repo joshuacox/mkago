@@ -17,6 +17,8 @@ echo 'en_US.ISO-8859-15 ISO-8859-15'>>/etc/locale.gen ; \
 echo 'en_US ISO-8859-1'>>/etc/locale.gen ; \
 echo 'en_US.UTF-8 UTF-8'>>/etc/locale.gen ; \
 locale-gen ; \
+apt-get -y install agocontrol  \
+agocontrol-zwave agocontrol-owfs agocontrol-knx agocontrol-mysensors ; \
 apt-get -y autoremove ; \
 apt-get clean ; \
 rm -Rf /var/lib/apt/lists/*
