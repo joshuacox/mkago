@@ -46,6 +46,7 @@ rundocker:
 	-v $(TMP):/tmp \
 	-d \
 	-P \
+	--privileged \
 	-v /var/run/docker.sock:/run/docker.sock \
 	-v $(shell which docker):/bin/docker \
 	-t $(TAG)
