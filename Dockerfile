@@ -4,8 +4,8 @@ MAINTAINER Josh Cox <josh 'at' webhosting.coop>
 ENV DEBIAN_FRONTEND noninteractive
 ENV LANG en_US.UTF-8
 
-COPY ago.list /etc/apt/sources.list.d/ago.list
 RUN apt-get -qq update; apt-get upgrade -y; apt-get install -qqy wget
+COPY ago.list /etc/apt/sources.list.d/ago.list
 RUN ["/bin/bash", "wget -O - http://mirror.at.agocontrol.com/debian/conf/agocontrol.gpg.key | apt-key add -"]
 
 RUN apt-get -qq update; \
